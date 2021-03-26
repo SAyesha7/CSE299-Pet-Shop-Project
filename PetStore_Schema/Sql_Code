@@ -1,0 +1,384 @@
+Sql for the tables
+
+CREATE TABLE `tbl_pet` (
+`pet_id` int(11) NOT NULL,
+`pet_description` varchar(50) NOT NULL,
+`pet_category_id` int(11) NOT NULL,
+`vendor_id` int(11) NOT NULL,
+`pet_images` blob NOT NULL,
+`pet_status` int(1) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_pet_category` (
+`pet_category_id` int(11) NOT NULL,
+`pet_category_name` varchar(30) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_pet_product_category` (
+`product_category_id` int(11) NOT NULL,
+`category_name` varchar(30) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_pet_product` (
+`pet_product_id` int(11) NOT NULL,
+`product_code` varchar(30) NOT NULL,
+`product_name` varchar(30) NOT NULL,
+`product_detail` varchar(100) NOT NULL,
+`product_category_id` int(11) NOT NULL,
+`quantity_on_hand` int(5) NOT NULL,
+`vendor_price` float NOT NULL,
+`retail_price` float NOT NULL,
+`discount` float NOT NULL,
+`vendor_id` int(11) NOT NULL,
+`status` int(1) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_order` (
+`order_id` int(11) NOT NULL,
+`reference_no` varchar(30) NOT NULL,
+`customer_id` int(11) NOT NULL,
+`order_date` date NOT NULL,
+`order_status` int(1) NOT NULL,
+`expected_delivery_date` date NOT NULL,
+`total_amount` float NOT NULL,
+`number_of_items` int(5) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_order_detail` (
+`order_detail_id` int(11) NOT NULL,
+`order_id` int(11) NOT NULL,
+`pet_product_id` int(11) NOT NULL,
+`quantity` int(5) NOT NULL,
+`quantity_price` float NOT NULL,
+`status` int(1) NOT NULL,
+`remarks` varchar(100) NOT NULL,
+`vendor_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `tbl_service` (
+`service_id` int(11) NOT NULL,
+`reference_no` varchar(30) NOT NULL,
+`service_name` varchar(30) NOT NULL,
+`service_detail` varchar(100) NOT NULL,
+`service_fee` float NOT NULL,
+`vendor_id` int(11) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_customer` (
+`customer_id` int(11) NOT NULL,
+`customer_code` varchar(30) NOT NULL,
+`avatar` blob NOT NULL,
+`customer_name` varchar(30) NOT NULL,
+`email_address` varchar(30) NOT NULL,
+`contact_number` varchar(15) NOT NULL,
+`complete_address` varchar(100) NOT NULL,
+`username` varchar(30) NOT NULL,
+`password` varchar(30) NOT NULL,
+`status` int(1) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_payment` (
+`payment_id` int(11) NOT NULL,
+`reference_no` varchar(30) NOT NULL,
+`payment_for` int(1) NOT NULL,
+`amount_paid` float NOT NULL,
+`remarks` varchar(100) NOT NULL,
+`payment_status` int(1) NOT NULL,
+`paid_by` varchar(30) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_vendor` (
+`company_id` int(11) NOT NULL,
+`company_name` varchar(50) NOT NULL,
+`company_contact_person` varchar(30) NOT NULL,
+`company_email` varchar(30) NOT NULL,
+`company_contact_number` varchar(15) NOT NULL,
+`company_website` varchar(30) NOT NULL,
+`company_profile` varchar(250) NOT NULL,
+`vendor_username` varchar(30) NOT NULL,
+`vendor_password` varchar(30) NOT NULL,
+`user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `tbl_user` (
+`user_id` int(11) NOT NULL,
+`username` varchar(30) NOT NULL,
+`password` varchar(30) NOT NULL,
+`avatar` blob NOT NULL,
+`fullname` varchar(50) NOT NULL,
+`contact` varchar(15) NOT NULL,
+`email` varchar(30) NOT NULL,
+`user_category_id` int(1) NOT NULL,
+`status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `tbl_user_group` (
+`user_group_id` int(11) NOT NULL,
+`group_name` varchar(30) NOT NULL,
+`description` varchar(50) NOT NULL,
+`allow_add` int(1) NOT NULL,
+`allow_edit` int(1) NOT NULL,
+`allow_delete` int(1) NOT NULL,
+`allow_print` int(1) NOT NULL,
+`allow_import` int(1) NOT NULL,
+`allow_export` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+///relation////
+
+
+--
+-- Indexes for table `tbl_customer`
+--
+ALTER TABLE `tbl_customer`
+ADD PRIMARY KEY (`customer_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+ADD PRIMARY KEY (`order_id`),
+ADD KEY `customer_id` (`customer_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_order_detail`
+--
+ALTER TABLE `tbl_order_detail`
+ADD PRIMARY KEY (`order_detail_id`),
+ADD KEY `order_id` (`order_id`),
+ADD KEY `pet_product_id` (`pet_product_id`),
+ADD KEY `vendor_id` (`vendor_id`);
+
+--
+-- Indexes for table `tbl_payment`
+--
+ALTER TABLE `tbl_payment`
+ADD PRIMARY KEY (`payment_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_pet`
+--
+ALTER TABLE `tbl_pet`
+ADD PRIMARY KEY (`pet_id`),
+ADD KEY `pet_category_id` (`pet_category_id`),
+ADD KEY `vendor_id` (`vendor_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_pet_category`
+--
+ALTER TABLE `tbl_pet_category`
+ADD PRIMARY KEY (`pet_category_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_pet_product`
+--
+ALTER TABLE `tbl_pet_product`
+ADD PRIMARY KEY (`pet_product_id`),
+ADD KEY `product_category_id` (`product_category_id`),
+ADD KEY `vendor_id` (`vendor_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_pet_product_category`
+--
+ALTER TABLE `tbl_pet_product_category`
+ADD PRIMARY KEY (`product_category_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_service`
+--
+ALTER TABLE `tbl_service`
+ADD PRIMARY KEY (`service_id`),
+ADD KEY `vendor_id` (`vendor_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+ADD PRIMARY KEY (`user_id`),
+ADD KEY `user_category_id` (`user_category_id`);
+
+--
+-- Indexes for table `tbl_user_group`
+--
+ALTER TABLE `tbl_user_group`
+ADD PRIMARY KEY (`user_group_id`);
+
+--
+-- Indexes for table `tbl_vendor`
+--
+ALTER TABLE `tbl_vendor`
+ADD PRIMARY KEY (`company_id`),
+ADD KEY `user_id` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_customer`
+--
+ALTER TABLE `tbl_customer`
+MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_order_detail`
+--
+ALTER TABLE `tbl_order_detail`
+MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_payment`
+--
+ALTER TABLE `tbl_payment`
+MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_pet`
+--
+ALTER TABLE `tbl_pet`
+MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_pet_category`
+--
+ALTER TABLE `tbl_pet_category`
+MODIFY `pet_category_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_pet_product`
+--
+ALTER TABLE `tbl_pet_product`
+MODIFY `pet_product_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_pet_product_category`
+--
+ALTER TABLE `tbl_pet_product_category`
+MODIFY `product_category_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_service`
+--
+ALTER TABLE `tbl_service`
+MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_user_group`
+--
+ALTER TABLE `tbl_user_group`
+MODIFY `user_group_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_vendor`
+--
+ALTER TABLE `tbl_vendor`
+MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT;
+Constraints for dumped tables
+
+--
+-- Constraints for table `tbl_customer`
+--
+ALTER TABLE `tbl_customer`
+ADD CONSTRAINT `tbl_customer_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+ADD CONSTRAINT `tbl_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tbl_order_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_order_detail`
+--
+ALTER TABLE `tbl_order_detail`
+ADD CONSTRAINT `tbl_order_detail_ibfk_1` FOREIGN KEY (`pet_product_id`) REFERENCES `tbl_pet_product` (`pet_product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tbl_order_detail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `tbl_order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tbl_order_detail_ibfk_3` FOREIGN KEY (`vendor_id`) REFERENCES `tbl_vendor` (`company_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_payment`
+--
+ALTER TABLE `tbl_payment`
+ADD CONSTRAINT `tbl_payment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pet`
+--
+ALTER TABLE `tbl_pet`
+ADD CONSTRAINT `tbl_pet_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tbl_pet_ibfk_2` FOREIGN KEY (`pet_category_id`) REFERENCES `tbl_pet_category` (`pet_category_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tbl_pet_ibfk_3` FOREIGN KEY (`vendor_id`) REFERENCES `tbl_vendor` (`company_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pet_category`
+--
+ALTER TABLE `tbl_pet_category`
+ADD CONSTRAINT `tbl_pet_category_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pet_product`
+--
+ALTER TABLE `tbl_pet_product`
+ADD CONSTRAINT `tbl_pet_product_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tbl_pet_product_ibfk_2` FOREIGN KEY (`product_category_id`) REFERENCES `tbl_pet_product_category` (`product_category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pet_product_category`
+--
+ALTER TABLE `tbl_pet_product_category`
+ADD CONSTRAINT `tbl_pet_product_category_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_service`
+--
+ALTER TABLE `tbl_service`
+ADD CONSTRAINT `tbl_service_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tbl_service_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `tbl_vendor` (`company_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+ADD CONSTRAINT `tbl_user_ibfk_1` FOREIGN KEY (`user_category_id`) REFERENCES `tbl_user_group` (`user_group_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_vendor`
+--
+ALTER TABLE `tbl_vendor`
+ADD CONSTRAINT `tbl_vendor_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
