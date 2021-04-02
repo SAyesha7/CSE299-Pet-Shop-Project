@@ -9,13 +9,9 @@
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
       $sql = "SELECT username FROM user  WHERE username = '$myusername' and password = '$mypassword'";
-      $result = mysqli_query($db,$sql);
+      $result = mysqli_query($db,$sql) or die("Error: ".mysqli_error($db)); 
 
-      if (!$result) {
-    printf("Error: %s\n", mysqli_error($con));
-    exit();
 
-}
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
       
@@ -29,7 +25,7 @@
          header("Location: http://localhost/CSE-299-Pet-Shop/welcome.php");
       }
       else {
-         $error = "Your Login Name or Password is invalid";
+        echo "Your Login Name or Password is invalid";
       }
    }
 ?>
@@ -52,7 +48,7 @@
             border:#666666 solid 1px;
          }
       </style>
-      
+
    </head>
    
    <body bgcolor = "#FFFFFF">
@@ -69,13 +65,15 @@
                   <input type = "submit" value = " Submit "/><br />
                </form>
                
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 					
             </div>
 				
          </div>
 			
       </div>
+       <h2><a href = "Signup_form.php">Sign Up</a></h2>
+      
 
    </body>
+
 </html>
