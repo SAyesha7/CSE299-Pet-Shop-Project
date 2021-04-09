@@ -1,0 +1,48 @@
+        label { color: black; font-weight: bold; width: 150px;  float: left; } 
+
+
+         input[type=text] {
+             width: 100%;
+            padding: 24px 40px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            background-color: #3CBC8D;
+            color: white;
+            resize: none;
+            border: 2px solid red;
+            border-radius: 4px;
+            resize: vertical
+
+               }
+               body {
+               box-sizing: border-box;
+               text-align: center;
+               background-image: url("baby-animals-white-puppy-rottweiler-two-kitten-cat-dog-sleep-cute-pets-pictures-1920x1080.jpg");
+               background-color: #cccccc;
+
+                     }  
+            form {
+         display: inline-block;
+                  }
+
+   input[type=button], input[type=submit] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  display: inline-block;
+}
+.container {
+  border-radius: 25px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+
+
+
+      

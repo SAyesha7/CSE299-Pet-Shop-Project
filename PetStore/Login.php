@@ -8,7 +8,7 @@
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT username FROM user  WHERE username = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT name FROM user  WHERE name = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql) or die("Error: ".mysqli_error($db)); 
 
 
@@ -18,7 +18,7 @@
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
+      
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
@@ -52,11 +52,11 @@
    </head>
    
    <body bgcolor = "#FFFFFF">
-	
+   
       <div align = "center">
          <div style = "width:300px; border: solid 1px #333333; " align = "left">
             <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
+            
             <div style = "margin:30px">
                
                <form action = "" method = "post">
@@ -65,11 +65,11 @@
                   <input type = "submit" value = " Submit "/><br />
                </form>
                
-					
+               
             </div>
-				
+            
          </div>
-			
+         
       </div>
        <h2><a href = "Signup_form.php">Sign Up</a></h2>
       
