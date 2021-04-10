@@ -52,7 +52,7 @@
 </form>
 
 
-   <body>
+   
 
       <input class="button" type="button" value="Back To Login" onclick="document.location='login.php'"/>
    </body>
