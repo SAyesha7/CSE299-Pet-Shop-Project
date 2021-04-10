@@ -52,6 +52,86 @@
    </head>
    
    <body bgcolor = "#FFFFFF">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Smart PetCare</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cat
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Dry Food</a></li>
+                    <li><a class="dropdown-item" href="#">Wet Food</a></li>
+                    <li><a class="dropdown-item" href="#">Mother and Kitten Care</a></li>
+                    <li><a class="dropdown-item" href="#">Treats</a></li>
+                    <li><a class="dropdown-item" href="#">Toys</a></li>
+                    <li><a class="dropdown-item" href="#">Grooming Supplies</a></li>
+                    <li><a class="dropdown-item" href="#">Accessories</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dog
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Dry Food</a></li>
+                    <li><a class="dropdown-item" href="#">Wet Food</a></li>
+                    <li><a class="dropdown-item" href="#">Mother and Puppy Care</a></li>
+                    <li><a class="dropdown-item" href="#">Treats</a></li>
+                    <li><a class="dropdown-item" href="#">Toys</a></li>
+                    <li><a class="dropdown-item" href="#">Grooming Supplies</a></li>
+                    <li><a class="dropdown-item" href="#">Accessories</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Bird
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Food</a></li>
+                    <li><a class="dropdown-item" href="#">Cages</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Fish and Reptile
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Fish Food</a></li>
+                    <li><a class="dropdown-item" href="#">Turtle Food</a></li>
+                    <li><a class="dropdown-item" href="#">Aquarium</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Bunny and Hamster
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Food</a></li>
+                    <li><a class="dropdown-item" href="#">Cages and Carriers</a></li>
+                    <li><a class="dropdown-item" href="#">Accessories</a></li>
+                </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">My Account</a>
+        </li> 
+            </ul>
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="button">Login</button>
+                <button class="btn btn-primary" type="button">SignUp</button>
+              </div>
+          </div>
+        </div>
+      </nav>
    
       <div align = "center">
          <div style = "width:300px; border: solid 1px #333333; " align = "left">
