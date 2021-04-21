@@ -1,10 +1,12 @@
 <?php
 include("config.php");
-$sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
-if(mysqli_query($link, $sql)){
+$sql= "INSERT INTO `vacappointment`(`ownername`, `email`, `petname`, `petspecies`, `vet`, `reason`, `number`) 
+VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]',7)";
+
+if(mysqli_query($db, $sql)){
     echo "Records inserted successfully.";
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }
 ?>
 <!DOCTYPE html>

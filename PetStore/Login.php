@@ -22,7 +22,7 @@
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
-         header("Location: http://localhost/CSE-299-Pet-Shop/welcome.php");
+         header("Location: http://localhost/PetStore/welcome.php");
       }
       else {
         echo "Your Login Name or Password is invalid";
