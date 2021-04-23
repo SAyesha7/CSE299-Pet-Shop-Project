@@ -12,7 +12,7 @@ $comments=$_POST['coomment'];
 
 
 
-        $sql = "INSERT INTO `salonappointment`(`ownername`, `email`, `petname`, `petspecies`, `vet`, `reason`, `comments`) VALUES ('$owner','$email','$petname','$petType','$vet','$reason','$comments')";
+        $sql = "INSERT INTO `salonappointment`(`ownername`, `email`, `petname`, `petspecies`, `vet`, `reason`, `comments`) VALUES ('$owner','$email','$petname','$vet','$petType','$reason','$comments')";
         if(mysqli_query($db, $sql)){
             echo "Records inserted successfully.";
         } else{
@@ -27,6 +27,7 @@ try{
 ?>
 
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="salonregistration.css">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -145,11 +146,11 @@ try{
   <input type="text" name="petname" required placeholder="Your petname.."/>
   <label for="petType">petType</label>
   <input type="text" name="petType" required placeholder="Your pettype.."/>
-  <label for="vet">petType</label>
+  <label for="vet">Vet</label>
   <input type="text" name="vet" required placeholder="Your vet.."/>
-  <label for="reason">petType</label>
+  <label for="reason">reason</label>
   <input type="text" name="reason" required placeholder="Your reason.."/>
-  <label for="comments">petType</label>
+  <label for="comments">Comments</label>
   <input type="text" name="comments" required placeholder="Your pettype.."/>
 
 
@@ -285,6 +286,9 @@ Hair Trimming and Brushing
 </div>
 </div>
 </div>  -->
+</div>
+</div>
+</div>
 <br><br> 
     <footer class="bg-dark py=6" width = "6000px">
       <div class="container-fluid">
@@ -321,7 +325,7 @@ Hair Trimming and Brushing
       </div>
     </div>
     <div class="col-lg-2"></div>
-  </div>
+  
     <hr class=" text-light">
       <p class="text-center text-light mb-3">&copy; Copyrights 2021| All rights reserved by Smart PetCare</p>
       <br>
