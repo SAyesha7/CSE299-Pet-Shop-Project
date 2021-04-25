@@ -1,7 +1,7 @@
 <?php
 include("config.php");
 $sql= "INSERT INTO `vacappointment`(`ownername`, `email`, `petname`, `petspecies`, `vet`, `reason`, `number`) 
-VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]',7)";
+VALUES ('owner','email','petname','petType','vet','reason','number')";
 
 if(mysqli_query($db, $sql)){
     echo "Records inserted successfully.";
@@ -12,6 +12,7 @@ if(mysqli_query($db, $sql)){
 <!DOCTYPE html>
 
 <html lang="en">
+<link rel="stylesheet" type="text/css" href="salonregistration.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -234,6 +235,32 @@ if(mysqli_query($db, $sql)){
           <div text-center>
             <button class="btn btn-primary" type="submit">Submit form</button>
           </div> -->
+          <form method="post">
+   <label for="owner">Name</label>
+  <input type="text" name="owner" required placeholder="Your name.."/>
+  <label for="email">email</label>
+  <input type="text" name="email" required placeholder="Your email.."/>
+  <label for="petname">petname</label>
+  <input type="text" name="petname" required placeholder="Your petname.."/>
+  <label for="petType">petType</label>
+  <input type="text" name="petType" required placeholder="Your pettype.."/>
+  <label for="vet">Vet</label>
+  <input type="text" name="vet" required placeholder="Your vet.."/>
+  <label for="reason">reason</label>
+  <input type="text" name="reason" required placeholder="Your reason.."/>
+  <label for="comments">Comments</label>
+  <input type="text" name="comments" required placeholder="Your pettype.."/>
+  label for="number">Number</label>
+  <input type="text" name="number" required placeholder="Your number.."/>
+
+
+ 
+
+
+
+  <input type="submit" value="Register"/>
+
+</form>
       </div>  
     </div>
   </div>
