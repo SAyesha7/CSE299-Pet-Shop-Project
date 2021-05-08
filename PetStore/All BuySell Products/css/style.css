@@ -88,40 +88,40 @@ h1, h2, h3, h4, h5, h6 {
 	width: 150px;
 	height: 150px;
 	overflow: hidden;
-	border-radius: 50%;
+	border: 50%;
 	
 }
 
 .product-description {
 	padding: 1em;
-	background: green;
+	background: black;
 	color: #fff;
 	border-radius: 5px;
 }
 
 .product-name {
 	text-align: center;
-	color: #fc0;
+	color: rgb(255, 255, 255);
 	margin: 0;
 	font-size: 1.4em;
 	padding-bottom: 0.2em;
 	border-bottom: 1px dotted #666;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.05em;
 }
 
 .product-price {
 	width: 4em;
-	height: 4em;
+	height: em;
 	font-size: 1.2em;
 	text-align: center;
-	margin: 1em auto;
-	background: #fff;
-	color: #800;
+	margin: auto;
+	color: rgb(218, 182, 24);
 	line-height: 4;
 	border-radius: 50%;
 }
-
+label{
+	color: #f9f9f9;
+}
 form.add-to-cart div,
 form.add-to-cart p {
 	text-align: center;

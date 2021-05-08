@@ -6,16 +6,16 @@ label { color: rgb(0, 0, 0); font-weight: bold; width: 150px;  float: left; }
             padding: 24px 40px;
             margin: 8px 0;
             box-sizing: border-box;
-            background-color: #367511;
-            color: rgb(255, 255, 255);
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
             resize: none;
-            border: 2px solid red;
+            border: 2px solid rgb(1, 40, 146);
             border-radius: 4px;
             resize: vertical
 
                }
 
                ::-ms-input-placeholder { /* Microsoft Edge */
-                color: red;
+                color: rgb(0, 0, 0);
               }
             
