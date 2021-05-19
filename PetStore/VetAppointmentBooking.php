@@ -1,13 +1,19 @@
 <?php
 include("config.php");
-$sql= "INSERT INTO `vacappointment`(`ownername`, `email`, `petname`, `petspecies`, `vet`, `reason`, `number`) 
+/*$sql= "INSERT INTO `vacappointment`(`ownername`, `email`, `petname`, `petspecies`, `vet`, `reason`, `number`) 
 VALUES ('owner','email','petname','petType','vet','reason','number')";
 
 if(mysqli_query($db, $sql)){
     echo "Records inserted successfully.";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
-}
+}*/
+try{
+  $stmt = $db->prepare("INSERT INTO `vacappointment`(`ownername`, `email`, `petname`, `petspecies`, `vet`, `reason`, `number`) VALUES (?,?,?,?,?,?,?)");
+        $stmt->bind_param('ssssssi',$_POST['owner'],$_POST['email'],$_POST['petname'],$_POST['vet'],$_POST['petType'],$_POST['reason'],$_POST['number']);
+         $stmt->execute();
+          } catch (Exception $ex) { $error = $ex->getMessage(); }
+ 
 ?>
 <!DOCTYPE html>
 
@@ -250,7 +256,7 @@ if(mysqli_query($db, $sql)){
   <input type="text" name="reason" required placeholder="Your reason.."/>
   <label for="comments">Comments</label>
   <input type="text" name="comments" required placeholder="Your pettype.."/>
-  label for="number">Number</label>
+  <label for="number">Number</label>
   <input type="text" name="number" required placeholder="Your number.."/>
 
 
