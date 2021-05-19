@@ -131,13 +131,19 @@
               </div>
           </div>
         </div>
-      </nav>
-   
-      <div align = "center">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-            
-            <div style = "margin:30px">
+      </nav><br>
+      <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-5">
+            <img src="2640602_petsHiGettyImages-1068118124-2000.jpg" alt="" width="500px" height="750px">
+          </div>
+          
+          <div class="col-md-7">
+            <div class="card-body">
+              
+      
                
                <form action = "" method = "post">
                   <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
@@ -150,6 +156,7 @@
             
          </div>
          
+      </div>
       </div>
        <h2><a href = "Signup_form.php">Sign Up</a></h2>
       
